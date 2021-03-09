@@ -81,6 +81,10 @@ func (cp *AvCodecParameters) AvCodecGetSampleRate() int {
 	return *((*int)(unsafe.Pointer(&cp.sample_rate)))
 }
 
+func (cp *AvCodecParameters) AvCodecParametersToContext(context *Context) int {
+	return int(C.avcodec_parameters_to_context((*C.struct_AVCodecContext)(context), (*C.struct_AVCodecParameters)(cp)))
+}
+
 func (c *Codec) AvCodecGetMaxLowres() int {
 	return int(C.av_codec_get_max_lowres((*C.struct_AVCodec)(c)))
 }
