@@ -285,3 +285,11 @@ func AvcodecDescriptorGetByName(n string) *Descriptor {
 func (f *Frame) Pts() int64 {
 	return int64(f.pts)
 }
+
+func (f *Frame) GetWidth() int {
+	return int(f.width)
+}
+
+func (f *Frame) GetHeight() int {
+	return int(f.height)
+}
