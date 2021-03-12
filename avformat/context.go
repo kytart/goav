@@ -4,6 +4,7 @@
 package avformat
 
 //#cgo pkg-config: libavformat
+//#cgo CFLAGS: -Wno-deprecated-declarations
 //#include <libavformat/avformat.h>
 import "C"
 import (

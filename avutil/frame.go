@@ -5,6 +5,7 @@ package avutil
 
 /*
 	#cgo pkg-config: libavutil
+	#cgo CFLAGS: -Wno-deprecated-declarations
 	#include <libavutil/frame.h>
 	#include <stdlib.h>
 */
