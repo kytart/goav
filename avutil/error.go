@@ -8,16 +8,15 @@
 package avutil
 
 //#cgo pkg-config: libavutil
-//#include <libavutil/error.h>
+//#include <libavutil/imgutils.h>
 //#include <stdlib.h>
 //static const char *error2string(int code) { return av_err2str(code); }
+//static int getAVErrorEAGAIN() { return AVERROR(EAGAIN); }
 import "C"
 import "errors"
 
-const (
-	AvErrorEOF    = -('E' | ('O' << 8) | ('F' << 16) | (' ' << 24))
-	AvErrorEAGAIN = -35
-)
+var AvErrorEOF int = int(C.AVERROR_EOF)
+var AvErrorEAGAIN int = int(C.getAVErrorEAGAIN())
 
 func ErrorFromCode(code int) error {
 	if code >= 0 {
